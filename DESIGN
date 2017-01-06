@@ -1,0 +1,35 @@
+Chess
+
+Members: James Hua, Leon Loi, James Yang
+
+Summary
+    Play chess between two different computers thorugh using command-line arguments
+    
+
+
+TECHNICAL DESIGN
+
+    Board
+        Dynamic array to manipulate pieces
+        Working with files for starting board
+        
+    Playing the game
+        Parsing arguments typed through Terminal
+        Use of shared memory and semaphores to limit number of people
+        Networking
+        
+        
+        
+REACH GOALS
+
+    Human vs AI
+        Play against a computer
+        
+
+TIMELINE
+
+    1/08: Basic board implemented
+    1/13: Parsing command-line arguments
+    1/17: Shared memory / Semaphore implementation
+    1/21: Networking
+    1/23: Debugging
