@@ -4,7 +4,8 @@ Members: James Hua, Leon Loi, James Yang
 
 Summary
     Play chess between two different computers thorugh using command-line arguments
-    
+    Players will type out commands in order to move the piece to a particular square
+    on the board.
 
 
 TECHNICAL DESIGN
