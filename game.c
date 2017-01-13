@@ -2,11 +2,22 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
+#include <errno.h>
 #include <sys/socket.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include "parse.h"
-#include "piece.h"
+//#include "parse.h"
+//#include "piece.h"
+
+void error_check(int i, char *s) {
+  if (i < 0) {
+    printf("%d\n", i);
+    printf("[%s] error %d: %s\n", s, errno, strerror(errno));
+    exit(1);
+
+  }
+
+}
 
 int client_connect(char * host) {
 
@@ -17,11 +28,12 @@ int client_connect(char * host) {
   struct sockaddr_in sock;
   sock.sin_family = AF_INET;
   inet_aton(host, &(sock.sin_addr));
-  sock.sin_port = htons(9001);
+  sock.sin_port = htons(666);
   
   printf("[client?] connecting to %s\n" , host);
   i = connect(sd , (struct sockaddr *)&sock, sizeof(sock));
   
+  error_check(i, "client connect");
   return sd;
 
 }
@@ -39,8 +51,8 @@ int main(int argc, char argv[]){
   int sd;
 
   sd = client_connect( host );
-
-  char buffer[MESSAGE_BUFFER_SIZE];
+  
+  char buffer[100];
   
   while (1) {
     printf("enter message: ");
