@@ -19,7 +19,7 @@ int server_setup() {
   struct sockaddr_in sock;
   sock.sin_family = AF_INET;
   sock.sin_addr.s_addr = INADDR_ANY;
-  sock.sin_port = htons(666);
+  sock.sin_port = htons(7032);
   i = bind(sd, (struct sockaddr *)&sock, sizeof(sock));
   printf("binding to socket");
   return sd;
