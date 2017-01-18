@@ -43,7 +43,7 @@ int main(int argc, char argv[]){
   char * host;
   if (argc != 2 ) {
     printf("host not specified, conneting to 149.89.150.120\n");
-    host = "149.89.150.120";
+    host = "149.89.150.122";
   }
   else
     host = argv[1];
@@ -52,16 +52,15 @@ int main(int argc, char argv[]){
 
   sd = client_connect( host );
   
-  char buffer[100];
-  
-  while (1) {
+  char buffer[1000];
+  while(1){
     printf("enter message: ");
     fgets( buffer, sizeof(buffer), stdin );
     char *p = strchr(buffer, '\n');
-    *p = 0;
-    
+     *p = 0;
+     
     write( sd, buffer, sizeof(buffer) );
-    read( sd, buffer, sizeof(buffer) );
+  
     printf( "received: %s\n", buffer );
   }
   
