@@ -53,18 +53,19 @@ int main() {
 
   printf("?\n");
   sd = server_setup();
-    
+  char buffer[100];    
   while (1) {
     
     connection = server_connect( sd );
-    char buffer[100];
-    
 
-    while (read( sd, buffer, sizeof(buffer) )) {
+
+    printf("%s\n", buffer);
+    
+    read( sd, &buffer, sizeof(buffer) ) ;
     
     printf("[SERVER %d] received: %s\n", getpid(), buffer );
-    
-    }
+        
+
   }
   return 0;
 }
