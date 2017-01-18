@@ -42,8 +42,8 @@ int main(int argc, char argv[]){
 
   char * host;
   if (argc != 2 ) {
-    printf("host not specified, conneting to 149.89.150.20\n");
-    host = "149.89.150.20";
+    printf("host not specified, conneting to 149.89.150.120\n");
+    host = "149.89.150.120";
   }
   else
     host = argv[1];

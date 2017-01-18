@@ -59,11 +59,11 @@ int main() {
     connection = server_connect( sd );
     char buffer[100];
     
+
     while (read( sd, buffer, sizeof(buffer) )) {
     
     printf("[SERVER %d] received: %s\n", getpid(), buffer );
     
-    write( sd, buffer, sizeof(buffer));    
     }
   }
   return 0;
