@@ -21,7 +21,7 @@ int server_setup() {
   sock.sin_family = AF_INET;
   sock.sin_addr.s_addr = INADDR_ANY;
   sock.sin_port = htons(7032);
-  printf("stuff made");
+  printf("stuff made\n");
   i = bind(sd, (struct sockaddr *)&sock, sizeof(sock));
   printf("binding to socket\n");
   return sd;
@@ -48,24 +48,21 @@ int server_connect(int sd) {
 }
 
 int main() {
-  printf("!\n");
+
   int sd, connection;
 
-  printf("?\n");
   sd = server_setup();
-  char buffer[100];    
-  while (1) {
+  char buffer[1000];
+  connection = server_connect( sd );
+ 
     
-    connection = server_connect( sd );
-
-
-    printf("%s\n", buffer);
-    
-    read( sd, &buffer, sizeof(buffer) ) ;
+  while(read( connection, &buffer, sizeof(buffer) )){
     
     printf("[SERVER %d] received: %s\n", getpid(), buffer );
-        
-
+    
   }
+
+  close(connection);
+ 
   return 0;
 }
