@@ -47,6 +47,10 @@ int server_connect(int sd) {
 
 }
 
+char ** create(){
+  char board[8][8];
+  return (char **)board;
+}
 int main() {
 
   int sd, connection;
