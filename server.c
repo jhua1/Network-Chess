@@ -47,10 +47,6 @@ int server_connect(int sd) {
 
 }
 
-char ** create(){
-  char board[8][8];
-  return (char **)board;
-}
 int main() {
 
   int sd, connection;
@@ -59,7 +55,11 @@ int main() {
   char buffer[1000];
   connection = server_connect( sd );
  
-    
+  //creating board;
+  char* board[8][8] = {{"WR1","WP1","---","---","---",}};
+}
+  
+  
   while(read( connection, &buffer, sizeof(buffer) )){
     
     printf("[SERVER %d] received: %s\n", getpid(), buffer );
