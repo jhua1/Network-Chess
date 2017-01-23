@@ -44,15 +44,11 @@ int client_connect(char * host) {
 }
 
 int main(int argc, char argv[]){
-
-  char * host;
-  if (argc != 2 ) {
-    printf("host not specified, conneting to 127.0.0.1\n");
-    host = "127.0.0.1";
-  }
-  else
-    host = argv[1];
-
+  char host[1000];
+  printf("enter the ip of the server you wish to play against:");
+  fgets(host, sizeof(host), stdin);
+  char *s = strchr(host, '\n');
+  *s = 0;
   int sd;
 
   sd = client_connect( host );
