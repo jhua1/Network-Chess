@@ -9,6 +9,11 @@
 //#include "parse.h"
 //#include "piece.h"
 
+struct piece{
+  char* name;
+  int x,y,color;
+}
+
 void error_check(int i, char *s) {
   if (i < 0) {
     printf("%d\n", i);

@@ -7,10 +7,10 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-
+#include "parse.h"
 
 int server_setup() {
-
+  
   int sd;
   int i;
 
@@ -56,7 +56,7 @@ int main() {
   connection = server_connect( sd );
  
   //creating board;
-  char* board[8][8] = {{"WR1","WP1","---","---","---",}};
+  piece board[8][8];
 
   
   
