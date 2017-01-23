@@ -47,14 +47,13 @@ int main(int argc, char argv[]){
   int sd;
 
   sd = client_connect( host );
-  
   char buffer[1000];
   while(1){
     printf("enter message: ");
     fgets( buffer, sizeof(buffer), stdin );
     char *p = strchr(buffer, '\n');
-     *p = 0;
-     
+    *p = 0;
+    
     write( sd, buffer, sizeof(buffer) );
   
     printf( "received: %s\n", buffer );
