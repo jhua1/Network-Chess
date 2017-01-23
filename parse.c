@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 char ** parse(char * scan) {
   
   *strchr(scan, '\n') = 0;
@@ -17,14 +18,12 @@ char ** parse(char * scan) {
   return input;
 
 }
-/*
-void main() {
 
-  char read[256];
-  char * s = read;
-  fgets(read, sizeof(read), stdin);
-  char ** inputs = parse(read);
-  printf("%s\n %s\n", inputs[0], inputs[1]);
+int * translate(char * input) {
+
+  int x = 
+  int c[2] = (int *) malloc(sizeof(char *), 2);
+  
+  c[0] = 
 
 }
-*/

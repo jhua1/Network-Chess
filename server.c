@@ -57,7 +57,7 @@ int main() {
  
   //creating board;
   char* board[8][8] = {{"WR1","WP1","---","---","---",}};
-}
+
   
   
   while(read( connection, &buffer, sizeof(buffer) )){
@@ -65,7 +65,7 @@ int main() {
     printf("[SERVER %d] received: %s\n", getpid(), buffer );
     
   }
-
+  
   close(connection);
  
   return 0;
