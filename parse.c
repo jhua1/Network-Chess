@@ -30,7 +30,7 @@ int * translateCoord(char * coord)  {
   letter -= 97;
   num -= 49;
 
-  int * c;
+  int *c;
     
   c[0] = letter;
   c[1] = num;
@@ -39,12 +39,48 @@ int * translateCoord(char * coord)  {
   return c;
 }
 
-int * translatePiece(char * piece) {
 
-  int piece;
-  int color;
+int * translatePiece(char * piece) { 
+
+  int color = -1;
+  int type = -1;
   
+  char defColor = 'b';
 
+  if (tolower(piece[0]) == defColor)
+    color = 0;
+  else 
+    color = 1;
+  
+  int i = 1;
+  char * temp;
+  temp = malloc(sizeof(char) * 2);
+
+  temp[0] = piece[1];
+  temp[1] = piece[2];
+
+
+  if (strcmp(temp, "pn") == 0)
+    type = 0;
+  if (strcmp(temp, "bs") == 0)
+    type = 1;
+  if (strcmp(temp, "kn") == 0)
+    type = 2;
+  if (strcmp(temp, "rk") == 0)
+    type = 3;
+  if (strcmp(temp, "qn") == 0)
+    type = 4;
+  if (strcmp(temp, "kg") == 0)
+    type = 5;
+
+  int *d;
+  
+  d[0] = color;
+  d[1] = type;
+  
+  free(temp);
+  
+  return d;
 
 }
 
@@ -56,11 +92,15 @@ int checkMoves(char * piece, int * from, int * to){
 
 int check(char * input) {
   
-  int from[2];
-  int to[2];
+  int *piece;
+  int *from;
+  int *to;
 
-  from = translate(input[1]);
-  to = translate(input[2]);
+  piece = translatePiece(input[0]);
+  from = translateCoord(input[1]);
+  to = translateCoord(input[2]);
+  
+  printf("piece, %d, %d",piece[0], piece[1]);
 
   return 0;
 
