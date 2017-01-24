@@ -48,3 +48,6 @@ Leon -- 01/23/17
 
 JamesY -- 01/24/17
   first version of checking moves finished
+
+JamesY -- 01/24/17
+  cannot solve the underlying issues of buffers

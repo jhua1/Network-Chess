@@ -39,8 +39,8 @@ int * translateCoord(char * input)  {
 
   int * c = (int *) malloc(sizeof(int) * 2);
     
-  c[0] = letter;
-  c[1] = num;
+  c[0] = num;
+  c[1] = letter;
   
   return c;
 }
@@ -880,7 +880,7 @@ int checkMoves(int * pieces, int * from, int * to, piece board[8][8]) {
   return 0;
 }
 
-void move(char ** input, piece board[8][8]) {
+int move(char ** input, piece board[8][8]) {
   
   int *pieces;
   int *from;
@@ -915,13 +915,15 @@ void move(char ** input, piece board[8][8]) {
     free(pieces);
     free(from);
     free(to);
+    return 0;
   }
 
   else {
-    printf("Invalid move");
+    printf("Invalid move\n");
     free(pieces);
     free(from);
     free(to);
+    return -1;
   }
       
     

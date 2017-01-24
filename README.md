@@ -25,3 +25,6 @@ Second player is the game
 $ ./game
 ```
 ### Bugs
+* Game does not run
+* Main reason is the buffer is not working
+* Seg fault due to buffer breaking.

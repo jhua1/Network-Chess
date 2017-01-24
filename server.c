@@ -49,7 +49,7 @@ int server_connect(int sd) {
 
 char * update(piece board[8][8], char * buffer){
   int i, k;
-  memset(buffer, '\0', sizeof(buffer));
+  //memset(buffer, '\0', sizeof(buffer));
   for(i=0; i <8; i ++){
     for(k=0; k <8; k++){
       strcat(buffer, board[i][k].name);
@@ -62,14 +62,19 @@ char * update(piece board[8][8], char * buffer){
 char ** sepBuffer(char * buffer){
   int i =0;
   char **array;
-  while(array[i] = strcep(&buffer, " ")){
+  while(array[i] = strsep(&buffer, " ")){
     if(strlen(array[i]))
       i++;
   }
   return array;
 }
   
-
+void makeMove(char * buffer) {
+  printf("make your move:");
+  fgets(buffer, sizeof(buffer), stdin);
+  char *p = strchr(buffer, '\n');
+  *p = 0;
+}
 int main() {
 
   //==================creating board==========================
@@ -150,21 +155,23 @@ int main() {
 
     printf("waiting for opponent to make a move...\n");
     read(connection, buffer, sizeof(buffer));//reads the opponent's move
-    move(sepBuffer(buffer), board); //should take in the move which is in buffer and update the board accordingly
+    //move(sepBuffer(buffer), board); //should take in the move which is in buffer and update the board accordingly
     //send should put the board state into the buffer so that we can send it to the client
     update(board, buffer);
     printboard(board);
     printf("\n");
     write(connection, buffer, sizeof(buffer));//sends over the board state to client
+    //buffer now contains the server's move
     printf("make your move:");
     fgets(buffer, sizeof(buffer), stdin);
     char *p = strchr(buffer, '\n');
     *p = 0;
-    //buffer now contains the server's move
-    move(sepBuffer(buffer), board); //updates the board according to the server's move
+    // while (move(sepBuffer(buffer), board)) //updates the board according to the server's mov
+	 // makeMove(buffer);
+    move(sepBuffer(buffer), board);
     printboard(board);
     printf("\n");
-    update(board, buffer);
+ update(board, buffer);
     write(connection, buffer, sizeof(buffer)); //writes the post-server-move board state to the cleint
     
 
