@@ -19,11 +19,49 @@ char ** parse(char * scan) {
 
 }
 
-int * translate(char * input) {
+int * translateCoord(char * coord)  {
 
-  int x = 
-  int c[2] = (int *) malloc(sizeof(char *), 2);
+  int letter;
+  int num;
   
-  c[0] = 
+  letter = tolower(coord[0]);
+  num = coord[1];
+  
+  letter -= 97;
+  num -= 49;
+
+  int * c;
+    
+  c[0] = letter;
+  c[1] = num;
+
+  
+  return c;
+}
+
+int * translatePiece(char * piece) {
+
+  int piece;
+  int color;
+  
+
+
+}
+
+int checkMoves(char * piece, int * from, int * to){
+  
+  
+
+}
+
+int check(char * input) {
+  
+  int from[2];
+  int to[2];
+
+  from = translate(input[1]);
+  to = translate(input[2]);
+
+  return 0;
 
 }
