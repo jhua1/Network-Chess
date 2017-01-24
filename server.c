@@ -58,7 +58,19 @@ char * update(piece board[8][8], char * buffer){
     strcat(buffer, "\n"); 
   }
 }
+/*
+char ** sepBuffer(char * buffer){
+  int i =0;
+  char *token = strtok(buffer, " ");
+  char *array[3];
+  while(token != NULL){
+    array[i++] = token;
+    token = strtok(NULL , " ");
+  }
+  return **array;
 
+}
+*/
 int main() {
 
   //==================creating board==========================
@@ -139,7 +151,7 @@ int main() {
 
     printf("waiting for opponent to make a move...\n");
     read(connection, buffer, sizeof(buffer));//reads the opponent's move
-    move(buffer); //should take in the move which is in buffer and update the board accordingly
+    move(parse(buffer), board); //should take in the move which is in buffer and update the board accordingly
     //send should put the board state into the buffer so that we can send it to the client
     update(board, buffer);
     printboard(board);
@@ -150,7 +162,7 @@ int main() {
     char *p = strchr(buffer, '\n');
     *p = 0;
     //buffer now contains the server's move
-    move(buffer); //updates the board according to the server's move
+    move(parse(buffer), board); //updates the board according to the server's move
     printboard(board);
     printf("\n");
     update(board, buffer);
