@@ -5,5 +5,5 @@ int check(char ** input);
 
 typedef struct piece{
   char* name;
-  int x,y,color;
+  int x,y;
 } piece;
