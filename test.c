@@ -61,7 +61,7 @@ int * translatePiece(char * piece) {
     type = 5;
   */
   int * d;
-  
+  int p = 1;
   d[0] = 1;
   d[1] = 1;
   
@@ -81,13 +81,14 @@ int main() {
 
   printf("%d,%d\n",res[0], res[1]);
   
-  char * input2 = "WPn";
+  char  input2[5] = "Wpn";
+  printf("input is set to White pawn\n");
   int * piece = (int *) malloc(sizeof(int));
- 
+  printf("malloc the piece\n");
   piece = translatePiece(input2);
   
 
-  printf("%d,%d\n", piece[0], piece[1]);
+  //printf("%d,%d\n", piece[0], piece[1]);
   //free(piece);
   return 0;
 }
