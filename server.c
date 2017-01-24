@@ -72,7 +72,7 @@ int main() {
       board[r][c].y = c;
       board[r][c].color=0;
       if ( r == 1){
-	board[r][c].name = "bpn";
+	board[r][c].name ="bpn";
       }
     }
   }

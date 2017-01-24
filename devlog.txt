@@ -1,0 +1,49 @@
+JamesY -- 01/9/17
+  started piece.c
+  started parse.c
+
+JamesY -- 01/13/17
+  copied networking for client and server
+  added errno for error testing
+
+JamesH -- 01/13/17
+  tested connection between computers and failed
+
+JamesY -- 01/18/17
+  added structs for pieces in piece.c
+  added pieces in game.c
+
+Everyone -- 01/18/17
+  testing and failing to connect sockets between computers
+
+LeonL -- 01/18/17
+  changed ip address in network connection and successfully connected
+
+JamesH -- 01/20/17
+  started work on board in server.c with strings
+
+JamesY -- 01/23/17
+  removed piece.c
+  created makefile
+  added translate to parse.c
+
+LeonL -- 01/23/17
+  added functionality of choosing IP to connect to
+  added functionality of sending/receiving commands
+  
+JamesH -- 01/23/17
+  created struct piece
+  started board with structs on server
+
+JamesY -- 01/23/17
+  added parsing/translating commands into moving pieces
+
+JamesH -- 01/23/17
+  board has ability to populate and print
+  pieces have ints for color along with names
+
+Leon: -- 01/23/17
+  server and client can process commands
+  server and client correctly prints out board status after move
+
+
