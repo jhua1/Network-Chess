@@ -60,11 +60,6 @@ int * translatePiece(char * piece) {
   if (strcmp(temp, "kg"))
     type = 5;
   */
-  int * d;
-  
-  d[0] = color;
-  d[1] = temp;
-    
 
   int p = 1;
   d[0] = 1;
@@ -84,14 +79,8 @@ int main() {
 
   printf("%s\n", input);
   res = translateCoord(input);
-
   printf("%d,%d\n",res[0], res[1]);
   
-
-  char * input2 = "WPn";
-    
-  int * piece = (int *) malloc(sizeof(int));
-  printf("%s",input2);
 
 
   char  input2[5] = "Wpn";
