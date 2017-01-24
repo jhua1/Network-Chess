@@ -21,6 +21,7 @@ $ ./server
 ```
 
 Second player is the game
+```
 $ ./game
-
+```
 ### Bugs
