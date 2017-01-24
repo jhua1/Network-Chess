@@ -139,7 +139,7 @@ int main() {
 
     printf("waiting for opponent to make a move...\n");
     read(connection, buffer, sizeof(buffer));//reads the opponent's move
-    //process(buffer); should take in the move which is in buffer and update the board accordingly
+    move(buffer); //should take in the move which is in buffer and update the board accordingly
     //send should put the board state into the buffer so that we can send it to the client
     update(board, buffer);
     printboard(board);
@@ -150,7 +150,7 @@ int main() {
     char *p = strchr(buffer, '\n');
     *p = 0;
     //buffer now contains the server's move
-    //process(buffer); //updates the board according to the server's move
+    move(buffer); //updates the board according to the server's move
     printboard(board);
     printf("\n");
     update(board, buffer);
