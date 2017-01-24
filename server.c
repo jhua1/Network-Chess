@@ -48,10 +48,9 @@ int server_connect(int sd) {
 }
 
 void printboard(piece same[8][8]){
-  int j = 0;
-  int k = 0;
-  for ( j ; j < 8; j++){
-    for ( k; k < 8; k++){
+  int j,k;
+  for ( j=0 ; j < 8; j++){
+    for ( k=0; k < 8; k++){
       printf("%s ", same[j][k].name);
     }
     printf("\n");
@@ -64,60 +63,53 @@ int main() {
   
   piece board[8][8];
   //left side/black side
-  int r = 0;
-  int c = 0;
-  for( r; r < 8; r++){
-    for ( c; c < 2; c++){
+  int r,c;
+  for( r = 0; r < 8; r++){
+    for ( c = 0; c < 2; c++){
       board[r][c].x = r;
-      board[r][c].y = c;
-      board[r][c].color = 0;
+      board[r][c].y = c;      
       if ( c == 1){
-	board[r][c].name = "pn";
+	board[r][c].name = "bpn";
       }
     }
   }
   //middle
-  r = 0;
-  c = 2;
-  for( r; r < 8; r++){
-    for( c; c < 6; c++){
+  
+  for( r = 0; r < 8; r++){
+    for( c = 2; c < 6; c++){
       board[r][c].name = "--";
       board[r][c].x = r;
       board[r][c].y = c;
-      board[r][c].color = 0;
     }
   }
   //right/white
-  r = 0;
-  c = 6;
-  for( r; r < 8; r++){
-    for( c; c < 8; c++){
+  for( r = 0; r < 8; r++){
+    for( c = 6; c < 8; c++){
       board[r][c].x = r;
       board[r][c].y = c;
-      board[r][c].color = 1;
       if( c == 6)
-	board[r][c].name = "pn";    
+	board[r][c].name = "wpn";    
     }
   }
   
   //black nonpawn
-  board[0][0].name = "rk";
-  board[1][0].name = "kn";
-  board[2][0].name = "bs";
-  board[3][0].name = "qn";
-  board[4][0].name = "kg";
-  board[5][0].name = "bs";
-  board[6][0].name = "kn";
-  board[7][0].name = "rk";
+  board[0][0].name = "brk";
+  board[1][0].name = "bkn";
+  board[2][0].name = "bbs";
+  board[3][0].name = "bqn";
+  board[4][0].name = "bkg";
+  board[5][0].name = "bbs";
+  board[6][0].name = "bkn";
+  board[7][0].name = "brk";
   //white nonpawn
-  board[0][7].name = "rk";
-  board[1][7].name = "kn";
-  board[2][7].name = "bs";
-  board[3][7].name = "qn";
-  board[4][7].name = "kg";
-  board[5][7].name = "bs";
-  board[6][7].name = "kn";
-  board[7][7].name = "rk";
+  board[0][7].name = "wrk";
+  board[1][7].name = "wkn";
+  board[2][7].name = "wbs";
+  board[3][7].name = "wqn";
+  board[4][7].name = "wkg";
+  board[5][7].name = "wbs";
+  board[6][7].name = "wkn";
+  board[7][7].name = "wrk";
   //==========================end board===========================
   
   printboard(board);
