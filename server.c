@@ -62,53 +62,53 @@ int main() {
   //==================creating board==========================
   
   piece board[8][8];
-  //left side/black side
+  //black side
   int r,c;
-  for( r = 0; r < 8; r++){
-    for ( c = 0; c < 2; c++){
+  for( r = 0; r < 2; r++){
+    for ( c = 0; c < 8; c++){
       board[r][c].x = r;
       board[r][c].y = c;      
-      if ( c == 1){
+      if ( r == 1){
 	board[r][c].name = "bpn";
       }
     }
   }
   //middle
   
-  for( r = 0; r < 8; r++){
-    for( c = 2; c < 6; c++){
-      board[r][c].name = "--";
+  for( r = 2; r < 6; r++){
+    for( c = 0; c < 8; c++){
+      board[r][c].name = "---";
       board[r][c].x = r;
       board[r][c].y = c;
     }
   }
-  //right/white
-  for( r = 0; r < 8; r++){
-    for( c = 6; c < 8; c++){
+  //white
+  for( r = 6; r < 8; r++){
+    for( c = 0; c < 8; c++){
       board[r][c].x = r;
       board[r][c].y = c;
-      if( c == 6)
+      if( r == 6)
 	board[r][c].name = "wpn";    
     }
   }
   
   //black nonpawn
   board[0][0].name = "brk";
-  board[1][0].name = "bkn";
-  board[2][0].name = "bbs";
-  board[3][0].name = "bqn";
-  board[4][0].name = "bkg";
-  board[5][0].name = "bbs";
-  board[6][0].name = "bkn";
-  board[7][0].name = "brk";
+  board[0][1].name = "bkn";
+  board[0][2].name = "bbs";
+  board[0][3].name = "bqn";
+  board[0][4].name = "bkg";
+  board[0][5].name = "bbs";
+  board[0][6].name = "bkn";
+  board[0][7].name = "brk";
   //white nonpawn
-  board[0][7].name = "wrk";
-  board[1][7].name = "wkn";
-  board[2][7].name = "wbs";
-  board[3][7].name = "wqn";
-  board[4][7].name = "wkg";
-  board[5][7].name = "wbs";
-  board[6][7].name = "wkn";
+  board[7][0].name = "wrk";
+  board[7][1].name = "wkn";
+  board[7][2].name = "wbs";
+  board[7][3].name = "wqn";
+  board[7][4].name = "wkg";
+  board[7][5].name = "wbs";
+  board[7][6].name = "wkn";
   board[7][7].name = "wrk";
   //==========================end board===========================
   
