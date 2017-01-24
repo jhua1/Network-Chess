@@ -5,7 +5,7 @@ char * translate(char * input);
 int check(char ** input, char ** board);
 */
 
-typedef struct {
+typedef struct piece{
   char* name;
   int x,y,color;
 } piece;
