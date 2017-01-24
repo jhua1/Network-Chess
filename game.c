@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include "parse.h"
-//#include "piece.h"
+
 
 void error_check(int i, char *s) {
   if (i < 0) {
