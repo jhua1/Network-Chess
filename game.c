@@ -12,7 +12,7 @@
 struct piece{
   char* name;
   int x,y,color;
-}
+};
 
 void error_check(int i, char *s) {
   if (i < 0) {
@@ -35,7 +35,7 @@ int client_connect(char * host) {
   inet_aton(host, &(sock.sin_addr));
   sock.sin_port = htons(7032);
   
-  printf("[client?] connecting to %s\n" , host);
+  printf("[client] connecting to %s\n" , host);
   i = connect(sd , (struct sockaddr *)&sock, sizeof(sock));
   
   error_check(i, "client connect");
@@ -54,14 +54,17 @@ int main(int argc, char argv[]){
   sd = client_connect( host );
   char buffer[1000];
   while(1){
-    printf("enter message: ");
+    //printboard();
+    printf("make your move: ");
     fgets( buffer, sizeof(buffer), stdin );
     char *p = strchr(buffer, '\n');
     *p = 0;
     
-    write( sd, buffer, sizeof(buffer) );
-  
-    printf( "received: %s\n", buffer );
+    write( sd, buffer, sizeof(buffer) );//sends the move over to the server
+    printf("waiting for opponent...\n");
+    read( sd , buffer, sizeof(buffer));
+    printf("move confirmed, this the current board state:\n");
+    //printboard(); what should this look like
   }
   
   return 0;
