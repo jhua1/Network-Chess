@@ -900,11 +900,11 @@ void move(char ** input, piece board[8][8]) {
     tempName = board[x1][y1].name;
     tempColor = board[x1][y1].color;
     
-    board[x2][y2].name = board[x1][y1].name;
-    board[x2][y2].color = board[x1][y1].color;
-    
     board[x1][y1].name = "---";
+    board[x1][y1].color = -1;
     
+    board[x2][y2].name = tempName;
+    board[x2][y2].color = tempColor;
     
 
     free(piece);
