@@ -47,12 +47,12 @@ int server_connect(int sd) {
 
 }
 
-void printboard(piece* same[8][8]){
-  int x = 0;
-  int y= 0;
-  for ( x ; x < 8; x++){
-    for ( y; y < 8; y++){
-      printf("%s ", same[x][y]->name);
+void printboard(piece same[8][8]){
+  int j = 0;
+  int k = 0;
+  for ( j ; j < 8; j++){
+    for ( k; k < 8; k++){
+      printf("%s ", same[j][k].name);
     }
     printf("\n");
   }
@@ -60,19 +60,19 @@ void printboard(piece* same[8][8]){
 
 int main() {
 
-    //==================creating board==========================
+  //==================creating board==========================
   
-  piece* board[8][8];
+  piece board[8][8];
   //left side/black side
   int r = 0;
   int c = 0;
   for( r; r < 8; r++){
     for ( c; c < 2; c++){
-      board[r][c]->x = r;
-      board[r][c]->y = c;
-      board[r][c]->color = 0;
+      board[r][c].x = r;
+      board[r][c].y = c;
+      board[r][c].color = 0;
       if ( c == 1){
-	board[r][c]->name = "pn";
+	board[r][c].name = "pn";
       }
     }
   }
@@ -81,10 +81,10 @@ int main() {
   c = 2;
   for( r; r < 8; r++){
     for( c; c < 6; c++){
-      board[r][c]->name = "--";
-      board[r][c]->x = r;
-      board[r][c]->y = c;
-      board[r][c]->color = 0;
+      board[r][c].name = "--";
+      board[r][c].x = r;
+      board[r][c].y = c;
+      board[r][c].color = 0;
     }
   }
   //right/white
@@ -92,34 +92,34 @@ int main() {
   c = 6;
   for( r; r < 8; r++){
     for( c; c < 8; c++){
-      board[r][c]->x = r;
-      board[r][c]->y = c;
-      board[r][c]->color = 1;
+      board[r][c].x = r;
+      board[r][c].y = c;
+      board[r][c].color = 1;
       if( c == 6)
-	board[r][c]->name = "pn";    
+	board[r][c].name = "pn";    
     }
   }
   
   //black nonpawn
-  board[0][0]->name = "rk";
-  board[1][0]->name = "kn";
-  board[2][0]->name = "bs";
-  board[3][0]->name = "qn";
-  board[4][0]->name = "kg";
-  board[5][0]->name = "bs";
-  board[6][0]->name = "kn";
-  board[7][0]->name = "rk";
+  board[0][0].name = "rk";
+  board[1][0].name = "kn";
+  board[2][0].name = "bs";
+  board[3][0].name = "qn";
+  board[4][0].name = "kg";
+  board[5][0].name = "bs";
+  board[6][0].name = "kn";
+  board[7][0].name = "rk";
   //white nonpawn
-  board[0][7]->name = "rk";
-  board[1][7]->name = "kn";
-  board[2][7]->name = "bs";
-  board[3][7]->name = "qn";
-  board[4][7]->name = "kg";
-  board[5][7]->name = "bs";
-  board[6][7]->name = "kn";
-  board[7][7]->name = "rk";
+  board[0][7].name = "rk";
+  board[1][7].name = "kn";
+  board[2][7].name = "bs";
+  board[3][7].name = "qn";
+  board[4][7].name = "kg";
+  board[5][7].name = "bs";
+  board[6][7].name = "kn";
+  board[7][7].name = "rk";
   //==========================end board===========================
-
+  
   printboard(board);
 
   int sd, connection;
