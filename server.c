@@ -61,15 +61,14 @@ char * update(piece board[8][8], char * buffer){
 
 char ** sepBuffer(char * buffer){
   int i =0;
-  char *token = strtok(buffer, " ");
-  char *array[3];
-  while(token != NULL){
-    array[i++] = token;
-    token = strtok(NULL , " ");
+  char **array;
+  while(array[i] = strcep(&buffer, " ")){
+    if(strlen(array[i]))
+      i++;
   }
-  return &array;
-
+  return array;
 }
+  
 
 int main() {
 
