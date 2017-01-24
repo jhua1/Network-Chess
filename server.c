@@ -47,18 +47,20 @@ int server_connect(int sd) {
 
 }
 
+void printboard(piece* same[8][8]){
+  int x = 0;
+  int y= 0;
+  for ( x ; x < 8; x++){
+    for ( y; y < 8; y++){
+      printf("%s ", same[x][y]->name);
+    }
+    printf("\n");
+  }
+}
+
 int main() {
 
-  int sd, connection;
-
-  sd = server_setup();
-  printf("server is setup\n");
-  char buffer[1000];
-  connection = server_connect( sd );
-  printf("connection is made\n");
-
-  
-  //==================creating board==========================
+    //==================creating board==========================
   
   piece* board[8][8];
   //left side/black side
@@ -117,6 +119,19 @@ int main() {
   board[6][7]->name = "kn";
   board[7][7]->name = "rk";
   //==========================end board===========================
+
+  printboard(board);
+
+  int sd, connection;
+
+  sd = server_setup();
+  printf("server is setup\n");
+  char buffer[1000];
+  connection = server_connect( sd );
+  printf("connection is made\n");
+
+  
+
   
   while(1){
 
