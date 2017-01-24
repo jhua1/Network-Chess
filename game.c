@@ -75,11 +75,12 @@ int main(int argc, char argv[]){
     *p = 0;
     
     write( sd, buffer, sizeof(buffer) );//sends the move over to the server
-    printbuffer(buffer);
-    printf("waiting for opponent...\n");
     read( sd , buffer, sizeof(buffer));
+  
     printf("move confirmed, this the current board state:\n");
     printbuffer(buffer); 
+    read(sd, buffer , sizeof(buffer));
+    printbuffer(buffer);
   }
   
   return 0;

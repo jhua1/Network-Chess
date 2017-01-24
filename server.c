@@ -149,6 +149,7 @@ int main() {
     //buffer now contains the server's move
     //process(buffer); //updates the board according to the server's move
     printboard(board);
+    update(board, buffer);
     write(connection, buffer, sizeof(buffer)); //writes the post-server-move board state to the cleint
     
 
