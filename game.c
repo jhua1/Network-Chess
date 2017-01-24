@@ -67,6 +67,8 @@ int main(int argc, char argv[]){
   char buffer[1000];
   while(1){
     //printboard();
+    read(sd, buffer, sizeof(buffer));
+    printbuffer(buffer);
     printf("make your move: ");
     fgets( buffer, sizeof(buffer), stdin );
     char *p = strchr(buffer, '\n');

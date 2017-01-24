@@ -115,7 +115,7 @@ int main() {
   board[7][7].name = "wrk";
   //==========================end board===========================
   
-  printboard(board);
+  // printboard(board);
 
   int sd, connection;
 
@@ -132,6 +132,8 @@ int main() {
   while(1){
 
     printboard(board);
+    update(board, buffer);
+    write(connection, buffer, sizeof(buffer));
 
     printf("waiting for opponent to make a move...\n");
     read(connection, buffer, sizeof(buffer));//reads the opponent's move
