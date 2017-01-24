@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include "parse.c"
+#include "parse.h"
 
 int server_setup() {
   

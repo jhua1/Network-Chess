@@ -17,7 +17,7 @@ parse.o: parse.c parse.h
 
 clean: 
 	rm *.o
-	rm *~
-	rm a.out
 	rm game
 	rm server
+	rm a.out
+	rm *~
