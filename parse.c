@@ -30,7 +30,7 @@ int * translateCoord(char * coord)  {
   letter -= 97;
   num -= 49;
 
-  int *c;
+  int *c = (int *) malloc(sizeof(int) * 2);
     
   c[0] = letter;
   c[1] = num;
@@ -54,7 +54,7 @@ int * translatePiece(char * piece) {
   
   int i = 1;
   char * temp;
-  temp = malloc(sizeof(char) * 2);
+  temp = malloc(sizeof(char) * 3);
 
   temp[0] = piece[1];
   temp[1] = piece[2];
@@ -73,13 +73,12 @@ int * translatePiece(char * piece) {
   if (strcmp(temp, "kg") == 0)
     type = 5;
 
-  int *d;
+  int *d = (int *) malloc(sizeof(int) *2);
   
   d[0] = color;
   d[1] = type;
   
   free(temp);
-  
   return d;
 
 }
@@ -101,6 +100,10 @@ int check(char * input) {
   to = translateCoord(input[2]);
   
   printf("piece, %d, %d",piece[0], piece[1]);
+
+  free(piece);
+  free(from);
+  free(to);
 
   return 0;
 

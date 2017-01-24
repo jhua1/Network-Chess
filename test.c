@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 
 char ** parse(char * scan) {
@@ -84,6 +83,54 @@ int * translatePiece(char * piece) {
 
 }
 
+int checkMoves(int * piece, int * from, int * to) {
+  
+  int color = piece[0];
+  int type = piece[1];
+  int x1 = from[0]; 
+  int y1 = from[1];
+  int x2 = to[0];
+  int y2 = to[1];
+
+  if (x1 > 7 || x2 > 7 || y1 > 7 || y2 > 7 || x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0)
+    return 0;
+
+  //pawn
+  if (type == 0) {1
+    if ( (x2-x1) == 1 && (y2-y1) == 1) {
+      if (
+    }
+  }
+
+  //bishop
+  if (type == 1) {
+
+  }
+  
+  //knight
+  if (type == 2) {
+
+  }
+
+  //rook
+  if (type == 3) {
+
+  }
+
+  //queen
+  if (type == 4) {
+
+  }
+
+  //king
+  if (type == 5) {
+
+  }
+
+
+  return 0;
+}
+
 int check(char ** input) {
 
   int *piece;
@@ -93,17 +140,19 @@ int check(char ** input) {
   piece = translatePiece(input[0]);
   from = translateCoord(input[1]);
   to = translateCoord(input[2]);
-  
-  printf("color: %d; piece:%d; to:%d,%d; from:%d,%d;",piece[0], piece[1], from[0],from[1],to[0],to[1]);
 
-
-
-  free(piece);
-  free(from);
-  free(to);
-
-  return 0;
-
+  if (checkMoves(piece, from, to)) {
+    free(piece);
+    free(from);
+    free(to);
+    return 1;
+  }
+  else {
+    free(piece);
+    free(from);
+    free(to);
+    return 0;
+  }
 }
 
 int main(int argc, char argv[]) {

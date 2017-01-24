@@ -54,7 +54,7 @@ void printboard(piece same[8][8]){
     for ( k; k < 8; k++){
       printf("%s ", same[j][k].name);
     }
-    printf("\n");
+    printf("\n ");
   }
 }
 
