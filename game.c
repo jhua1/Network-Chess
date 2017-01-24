@@ -46,7 +46,6 @@ void printbuffer(char * buffer){
   while(token != NULL){
     printf("%s ", token);
     token = strtok(NULL , s);
-    printf("\n");
     
   }
   
