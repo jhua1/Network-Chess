@@ -38,6 +38,23 @@ int client_connect(char * host) {
 
 }
 
+void printbuffer(char * buffer){
+  char  s[2] = " ";
+  char * token;
+  int j,k;
+  token = strtok(buffer, s);
+  while(token != NULL){
+    for(k = 0; k <8; k++){
+      for(j = 0; j <8; j ++){
+	printf("%s ", token);
+	token = strtok(NULL , s);
+      }
+      printf("\n");
+    }
+  }
+  
+}
+
 int main(int argc, char argv[]){
   char host[1000];
   printf("enter the ip of the server you wish to play against:");
@@ -56,10 +73,11 @@ int main(int argc, char argv[]){
     *p = 0;
     
     write( sd, buffer, sizeof(buffer) );//sends the move over to the server
+    printbuffer(buffer);
     printf("waiting for opponent...\n");
     read( sd , buffer, sizeof(buffer));
     printf("move confirmed, this the current board state:\n");
-    //printboard(); what should this look like
+    printbuffer(buffer); 
   }
   
   return 0;

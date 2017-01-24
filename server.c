@@ -47,6 +47,16 @@ int server_connect(int sd) {
 
 }
 
+void update(piece board[8][8], char *buffer){
+  int i, k;
+  for(i=0; i <8; i ++){
+    for(k=0; k <8; k++){
+      strcat(buffer, " ");
+      strcat(buffer, board[i][k].name);
+    }
+  }
+}
+
 int main() {
 
   //==================creating board==========================
@@ -126,9 +136,9 @@ int main() {
     printf("waiting for opponent to make a move...\n");
     read(connection, buffer, sizeof(buffer));//reads the opponent's move
     //process(buffer); should take in the move which is in buffer and update the board accordingly
-    //process should also put the board state into the buffer so that we can send it to the client
+    //send should put the board state into the buffer so that we can send it to the client
+    update(board, buffer);
     printboard(board);
-    printf("%s\n" , buffer);
     write(connection, buffer, sizeof(buffer));//sends over the board state to client
     printf("make your move:");
     fgets(buffer, sizeof(buffer), stdin);
