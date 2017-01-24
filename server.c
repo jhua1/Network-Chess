@@ -47,9 +47,9 @@ int server_connect(int sd) {
 
 }
 
-void update(piece board[8][8], char *buffer){
+char * update(piece board[8][8], char * buffer){
   int i, k;
-  buffer[0] = "\0";
+  memset(buffer, '\0', sizeof(buffer));
   for(i=0; i <8; i ++){
     for(k=0; k <8; k++){
       strcat(buffer, board[i][k].name);
