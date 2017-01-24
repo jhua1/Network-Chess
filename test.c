@@ -62,9 +62,9 @@ int * translatePiece(char * piece) {
   */
   int * d;
   
-  d[0] = 1;
-  d[1] = 1;
-  
+  d[0] = color;
+  d[1] = temp;
+    
   return d;
 
 
@@ -82,12 +82,18 @@ int main() {
   printf("%d,%d\n",res[0], res[1]);
   
   char * input2 = "WPn";
+    
   int * piece = (int *) malloc(sizeof(int));
- 
+  printf("%s",input2);
+
+  
+  /*
+
   piece = translatePiece(input2);
   
-
+  
   printf("%d,%d\n", piece[0], piece[1]);
   //free(piece);
   return 0;
+  */
 }
