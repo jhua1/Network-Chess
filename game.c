@@ -6,13 +6,8 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-//#include "parse.h"
+#include "parse.h"
 //#include "piece.h"
-
-struct piece{
-  char* name;
-  int x,y,color;
-};
 
 void error_check(int i, char *s) {
   if (i < 0) {
