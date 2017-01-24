@@ -42,8 +42,9 @@ JamesH -- 01/23/17
   board has ability to populate and print
   pieces have ints for color along with names
 
-Leon: -- 01/23/17
+Leon -- 01/23/17
   server and client can process commands
   server and client correctly prints out board status after move
 
-
+JamesY -- 01/24/17
+  first version of checking moves finished
