@@ -44,13 +44,10 @@ void printbuffer(char * buffer){
   int j,k;
   token = strtok(buffer, s);
   while(token != NULL){
-    for(k = 0; k <8; k++){
-      for(j = 0; j <8; j ++){
-	printf("%s ", token);
-	token = strtok(NULL , s);
-      }
-      printf("\n");
-    }
+    printf("%s ", token);
+    token = strtok(NULL , s);
+    printf("\n");
+    
   }
   
 }

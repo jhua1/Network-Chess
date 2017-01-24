@@ -51,9 +51,10 @@ void update(piece board[8][8], char *buffer){
   int i, k;
   for(i=0; i <8; i ++){
     for(k=0; k <8; k++){
-      strcat(buffer, " ");
       strcat(buffer, board[i][k].name);
-    }
+      strcat(buffer, " ");
+    } 
+    strcat(buffer, "\n"); 
   }
 }
 
