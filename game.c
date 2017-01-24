@@ -65,6 +65,7 @@ int main(int argc, char argv[]){
     //printboard();
     read(sd, buffer, sizeof(buffer));
     printbuffer(buffer);
+    printf("\n");
     printf("make your move: ");
     fgets( buffer, sizeof(buffer), stdin );
     char *p = strchr(buffer, '\n');
@@ -74,9 +75,11 @@ int main(int argc, char argv[]){
     read( sd , buffer, sizeof(buffer));
   
     printf("move confirmed, this the current board state:\n");
-    printbuffer(buffer); 
+    printbuffer(buffer);
+    printf("\n");
     read(sd, buffer , sizeof(buffer));
     printbuffer(buffer);
+    printf("\n");
   }
   
   return 0;

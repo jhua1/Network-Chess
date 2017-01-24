@@ -143,6 +143,7 @@ int main() {
     //send should put the board state into the buffer so that we can send it to the client
     update(board, buffer);
     printboard(board);
+    printf("\n");
     write(connection, buffer, sizeof(buffer));//sends over the board state to client
     printf("make your move:");
     fgets(buffer, sizeof(buffer), stdin);
@@ -151,6 +152,7 @@ int main() {
     //buffer now contains the server's move
     //process(buffer); //updates the board according to the server's move
     printboard(board);
+    printf("\n");
     update(board, buffer);
     write(connection, buffer, sizeof(buffer)); //writes the post-server-move board state to the cleint
     
