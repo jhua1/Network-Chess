@@ -17,13 +17,13 @@ int server_setup() {
   sd = socket(AF_INET, SOCK_STREAM, 0);
   
   struct sockaddr_in sock;
-  printf("socket created\n");
+  //printf("socket created\n");
   sock.sin_family = AF_INET;
   sock.sin_addr.s_addr = INADDR_ANY;
   sock.sin_port = htons(7032);
-  printf("stuff made\n");
+  //printf("stuff made\n");
   i = bind(sd, (struct sockaddr *)&sock, sizeof(sock));
-  printf("binding to socket\n");
+  //printf("binding to socket\n");
   return sd;
   
 
@@ -33,15 +33,15 @@ int server_setup() {
 int server_connect(int sd) {
 
   int connection, i;
-  printf("listening\n");
+  //printf("listening\n");
   i = listen(sd, 1);
 
   struct sockaddr_in sock1;
   unsigned int sock1_len = sizeof(sock1);
   connection = accept(sd, (struct sockaddr *)&sock1, &sock1_len);
-  printf("connection accepted\n");
-  printf("[??] connected to %s\n", inet_ntoa(sock1.sin_addr));
-  printf("potato\n");
+  //printf("connection accepted\n");
+  //printf("[??] connected to %s\n", inet_ntoa(sock1.sin_addr));
+  //printf("potato\n");
   return connection;
  
 
@@ -117,23 +117,24 @@ int main() {
   int sd, connection;
 
   sd = server_setup();
-  printf("server is setup\n");
+  //printf("server is setup\n");
   char buffer[1000];
+  printf("waiting for an opponent...\n");
   connection = server_connect( sd );
-  printf("connection is made\n");
+  printf("MATCH FOUND\n");
 
   
 
   
   while(1){
 
-    //printboard();
+    printboard(board);
 
     printf("waiting for opponent to make a move...\n");
     read(connection, buffer, sizeof(buffer));//reads the opponent's move
     //process(buffer); should take in the move which is in buffer and update the board accordingly
     //process should also put the board state into the buffer so that we can send it to the client
-    //printboard();
+    printboard(board);
     printf("%s\n" , buffer);
     write(connection, buffer, sizeof(buffer));//sends over the board state to client
     printf("make your move:");
@@ -142,7 +143,7 @@ int main() {
     *p = 0;
     //buffer now contains the server's move
     //process(buffer); //updates the board according to the server's move
-    //printboard();
+    printboard(board);
     write(connection, buffer, sizeof(buffer)); //writes the post-server-move board state to the cleint
     
 
