@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 
+typedef struct piece{
+  char* name;
+  int x,y,color;
+} piece;
+
 
 char ** parse(char * scan) {
   
@@ -89,7 +94,7 @@ int checkMoves(char * piece, int * from, int * to){
 
 }
 
-int check(char * input) {
+int check(char ** input) {
   
   int *piece;
   int *from;
@@ -107,4 +112,14 @@ int check(char * input) {
 
   return 0;
 
+}
+
+void printboard(piece same[8][8]){
+  int j,k;
+  for ( j=0 ; j < 8; j++){
+    for ( k=0; k < 8; k++){
+      printf(" %s ", same[j][k].name);
+    }
+    printf("\n");
+  }
 }

@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include "parse.h"
+#include "parse.c"
 
 int server_setup() {
   
@@ -47,16 +47,6 @@ int server_connect(int sd) {
 
 }
 
-void printboard(piece same[8][8]){
-  int j,k;
-  for ( j=0 ; j < 8; j++){
-    for ( k=0; k < 8; k++){
-      printf("%s ", same[j][k].name);
-    }
-    printf("\n ");
-  }
-}
-
 int main() {
 
   //==================creating board==========================
@@ -67,7 +57,8 @@ int main() {
   for( r = 0; r < 2; r++){
     for ( c = 0; c < 8; c++){
       board[r][c].x = r;
-      board[r][c].y = c;      
+      board[r][c].y = c;
+      board[r][c].color=0;
       if ( r == 1){
 	board[r][c].name = "bpn";
       }
@@ -80,6 +71,7 @@ int main() {
       board[r][c].name = "---";
       board[r][c].x = r;
       board[r][c].y = c;
+      board[r][c].color=-1;
     }
   }
   //white
@@ -87,6 +79,7 @@ int main() {
     for( c = 0; c < 8; c++){
       board[r][c].x = r;
       board[r][c].y = c;
+      board[r][c].color=1;
       if( r == 6)
 	board[r][c].name = "wpn";    
     }
